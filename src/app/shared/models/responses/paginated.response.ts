@@ -1,6 +1,6 @@
-import {CollectionResponse} from './collection.response';
-import {Links} from '@ricoffy/shared/models/pagination/links';
-import {Meta} from '@ricoffy/shared/models/pagination/meta';
+import { CollectionResponse } from '@fe-template/shared/models/responses/collection.response';
+import { Links } from '@fe-template/shared/models/responses/links';
+import { Meta } from '@fe-template/shared/models/responses/meta';
 
 export interface PaginatedResponse<T> extends CollectionResponse<T> {
   links: Links;
