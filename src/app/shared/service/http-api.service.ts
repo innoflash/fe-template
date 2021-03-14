@@ -93,7 +93,7 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
-  public find(id, options?: HttpOptions): Observable<T> {
+  public find(id: any, options?: HttpOptions): Observable<T> {
     return this.http.get<T>(this.buildAction('/{:id}', { id }), this.buildOptions(options)).pipe(
       catchError(err => {
         return throwError(this.handleValidationErrors(err));
@@ -107,7 +107,7 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
-  public create(body, options?: HttpOptions): Observable<T> {
+  public create(body: any, options?: HttpOptions): Observable<T> {
     return this.http.post<T>(this.buildAction(''), body, this.buildOptions(options)).pipe(
       catchError(err => {
         return throwError(this.handleValidationErrors(err));
@@ -122,7 +122,7 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
-  public update(id, body, options?: HttpOptions): Observable<T> {
+  public update(id: any, body: any, options?: HttpOptions): Observable<T> {
     return this.http.patch<T>(this.buildAction('/{:id}', { id }), body, this.buildOptions(options)).pipe(
       catchError(err => {
         return throwError(this.handleValidationErrors(err));
@@ -136,7 +136,7 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
-  public delete(id, options?: HttpOptions): Observable<D> {
+  public delete(id: any, options?: HttpOptions): Observable<D> {
     return this.http.delete<D>(this.buildAction('/{:id}', { id }), this.buildOptions(options)).pipe(
       catchError(err => {
         return throwError(this.handleValidationErrors(err));
@@ -150,6 +150,7 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
+  // tslint:disable-next-line:typedef
   protected buildAction(path: string, params?: { [key: string]: string }, fromBaseUri: boolean = false) {
     params = params ? params : {};
     return Object.keys(params).reduce((url, paramKey) => {
