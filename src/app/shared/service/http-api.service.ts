@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ErrorDialogService } from '@fe-template/shared/dialogs/error-dialog.service';
 import { ActionResponse } from '@fe-template/shared/models/responses/action.response';
 import { PaginatedResponse } from '@fe-template/shared/models/responses/paginated.response';
 import { Observable, throwError } from 'rxjs';
