@@ -1,3 +1,7 @@
+import { environment as envBase } from './environment.base';
+
 export const environment = {
-  production: true
+  ...envBase,
+  production: true,
+  apiBase: 'https://ricoffy-api.freetouch.co.za/api'
 };
