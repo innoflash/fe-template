@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingStateService } from '@ricoffy/shared/service/global/loading-state.service';
+import { LoadingStateService } from '@fe-template/shared/service/global/loading-state.service';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'ricoffy-confirm-dialog',
+  selector: 'app-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogComponent implements OnInit {
-  public subject: Subject<any>;
-  public closure: (bsModalRef: BsModalRef) => void;
+  public subject: Subject<any> | undefined;
+  public closure: ((bsModalRef: BsModalRef) => void) | undefined;
   public title = 'Confirmation';
   public message = 'Are you sure?';
 
@@ -20,10 +20,10 @@ export class ConfirmDialogComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  public confirm() {
+  public confirm(): void {
     this.loading.start('confirm-dialog-buttons');
     if (this.closure) {
       this.closure(this.bsModalRef);

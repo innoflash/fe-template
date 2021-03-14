@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { ErrorDialogComponent } from '@ricoffy/shared/dialogs/error-dialog/error-dialog.component';
-import { SanitizerErrorMessageService } from '@ricoffy/shared/service/sanitizer-error-message.service';
+import { SanitizerErrorMessageService } from '@fe-template/shared/service/sanitizer-error-message.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Injectable()
 export class ErrorDialogService {
-  public bsModalRef: BsModalRef;
+  public bsModalRef: BsModalRef | undefined;
 
   constructor(private modalService: BsModalService, private sanitizerErrorMessage: SanitizerErrorMessageService) {
   }
 
-  public showErrorDialog(messages: string[] | string) {
+  public showErrorDialog(messages: string[] | string): BsModalRef {
+    // tslint:disable-next-line:no-non-null-assertion
     if (messages ! instanceof Array) {
       // @ts-ignore
       messages = [messages];
@@ -25,7 +25,7 @@ export class ErrorDialogService {
     return this.bsModalRef;
   }
 
-  public showErrorDialogFromResponse(res: any) {
+  public showErrorDialogFromResponse(res: any): BsModalRef {
     const messages = this.sanitizerErrorMessage.sanitizeMessage(res);
     return this.showErrorDialog(messages);
   }
