@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "fe-template"
+  "defaultProject": "fe-template",
+  "cli": {
+    "analytics": "c7a368c7-6f8f-4009-9706-5fd65bc1e802"
+  }
 }
