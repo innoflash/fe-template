@@ -1,0 +1,14 @@
+<div class="modal-body">
+  <div class="text-center">
+    <img src="./assets/images/dialogs/warning-image.svg ">
+  </div>
+  <h3 class="title-text">{{ title ? title : 'Warning' }}</h3>
+  <div class="message-text">
+    {{ message ? message : '' }}
+  </div>
+</div>
+<div class="modal-footer">
+  <div class="container-fluid text-center">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ btnLabel ? btnLabel : 'OK' }}</button>
+  </div>
+</div>

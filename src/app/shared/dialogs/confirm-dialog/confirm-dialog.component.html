@@ -1,0 +1,15 @@
+<div class="modal-body">
+  <div class="text-center">
+    <img src="./assets/images/dialogs/confirm-image.svg ">
+  </div>
+  <h3 class="title-text">{{title}}</h3>
+  <div class="message-text">
+    {{message}}
+  </div>
+</div>
+<div class="modal-footer" loadingState="confirm-dialog-buttons">
+  <div class="container-fluid text-center">
+    <button type="button" class="btn btn-default" (click)="confirm()">YES</button>
+    <button type="button" class="btn btn-default ml-2" (click)="bsModalRef.hide()">NO</button>
+  </div>
+</div>
