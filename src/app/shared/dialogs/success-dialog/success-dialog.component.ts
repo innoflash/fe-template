@@ -15,7 +15,7 @@ export class SuccessDialogComponent {
   constructor(public bsModalRef: BsModalRef) {
   }
 
-  callAction(action: () => boolean): void {
+  callAction(action: () => any): void {
     if (action()) {
       this.bsModalRef.hide();
     }
