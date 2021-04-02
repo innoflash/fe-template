@@ -13,7 +13,7 @@ import { filter, map } from 'rxjs/operators';
 })
 export class LoadingStateService {
 
-
+  public loadingMessage = 'Please wait...';
   /**
    * Replay the last 10 loading states to ensure components are up to date with their correct loading state when subscribe
    * @type {ReplaySubject<string>}
@@ -39,10 +39,14 @@ export class LoadingStateService {
 
   /**
    * @param {string} alias
+   * @param message
    * @memberof LoadingStateService
    */
-  start(alias: string | string[]): void {
+  start(alias: string | string[], message = 'Please wait...'): void {
     alias = alias instanceof Array ? alias : [alias];
+
+    // assign loader message.
+    this.loadingMessage = message;
 
     // tslint:disable-next-line:no-shadowed-variable
     alias.forEach((alias: string) => {
