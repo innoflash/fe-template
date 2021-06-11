@@ -11,6 +11,7 @@ import { SuccessDialogComponent } from '@fe-template/shared/dialogs/success-dial
 import { WarningDialogService } from '@fe-template/shared/dialogs/warning-dialog.service';
 import { WarningDialogComponent } from '@fe-template/shared/dialogs/warning-dialog/warning-dialog.component';
 import { SanitizerErrorMessageService } from '@fe-template/shared/service/sanitizer-error-message.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SanitizerErrorMessageService } from '@fe-template/shared/service/saniti
   ],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    ModalModule.forRoot()
   ],
   providers: [
     DialogService,
