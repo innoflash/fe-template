@@ -16,7 +16,7 @@ export class HttpService {
     url: string,
     options: any = {},
     token = true,
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.get(this.createUrl(url), { params: options }).pipe(
       map(response => response),
@@ -33,7 +33,7 @@ export class HttpService {
     dataRaw: any,
     token: boolean = true,
     options: any = {},
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.post<any>(this.createUrl(url), dataRaw, { params: options, observe: 'response' }).pipe(
       map(response => response),
@@ -46,7 +46,7 @@ export class HttpService {
     dataRaw: any,
     token: boolean = true,
     options: any = {},
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.patch<any>(this.createUrl(url), dataRaw, { params: options, observe: 'response' }).pipe(
       map(response => response),
@@ -58,7 +58,7 @@ export class HttpService {
     url: string,
     dataRaw: any,
     options: any = {},
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.put(this.createUrl(url), dataRaw, { params: options }).pipe(
       map(response => response),
@@ -69,7 +69,7 @@ export class HttpService {
   public postFile(
     url: string,
     dataRaw: any,
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.post(this.createUrl(url), dataRaw, {}).pipe(
       map(response => response),
@@ -80,7 +80,7 @@ export class HttpService {
   public putFile(
     url: string,
     dataRaw: any,
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): Observable<any> {
     return this.http.put(this.createUrl(url), dataRaw, {}).pipe(
       map(response => response),
@@ -88,7 +88,7 @@ export class HttpService {
     );
   }
 
-  public httpDelete(url: string, errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>): Observable<any> {
+  public httpDelete(url: string, errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>): Observable<any> {
     return this.http.delete(this.createUrl(url), {}).pipe(
       map(response => response),
       catchError(error => this.catchError(error, url, errorHandler))
@@ -110,7 +110,7 @@ export class HttpService {
   private catchError(
     error: HttpErrorResponse | Response,
     url: string,
-    errorHandler: (error: HttpErrorResponse, url: string) => ObservableInput<any>
+    errorHandler?: (error: HttpErrorResponse, url: string) => ObservableInput<any>
   ): ObservableInput<any> {
     if (errorHandler) {
       return errorHandler(error as HttpErrorResponse, url);
