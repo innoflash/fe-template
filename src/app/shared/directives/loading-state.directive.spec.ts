@@ -21,11 +21,11 @@ describe('LoadingStateDirective', () => {
       });
   }));
 
-  it('should append the mmaLoadingState directive', () => {
+  it('should append the feTemplateLoadingState directive', () => {
     const inputAttributes = debugElement.query(By.css('input')).attributes;
 
-    expect(Object.keys(inputAttributes)).toContain('mmaLoadingState');
-    expect(inputAttributes['mmaLoadingState']).toEqual('testLoadingState');
+    expect(Object.keys(inputAttributes)).toContain('feTemplateLoadingState');
+    expect(inputAttributes['feTemplateLoadingState']).toEqual('testLoadingState');
   });
 
   it('should turning disabled on when loadingStateService is started', () => {
@@ -50,6 +50,6 @@ describe('LoadingStateDirective', () => {
 });
 
 @Component({
-  template: '<input type="text" mmaLoadingState="testLoadingState" class="form-control"/>'
+  template: '<input type="text" feTemplateLoadingState="testLoadingState" class="form-control"/>'
 })
 export class LoadingStateDirectiveTestComponent {}
