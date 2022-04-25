@@ -14,6 +14,7 @@ export abstract class ModuleHttpService<T = any, L = PaginatedResponse<T>, D = A
     if (!url) {
       return `${ this.module }/${ this.items }`;
     }
+    
     return `${ this.module }/${ this.items }/${ url }`;
   }
 

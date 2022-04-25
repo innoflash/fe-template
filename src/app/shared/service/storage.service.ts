@@ -11,7 +11,7 @@ export class StorageService {
     this.keyPrefix = environment.storageKey;
   }
 
-  // tslint:disable-next-line:typedef
+  // eslint-disable-next-line
   public storageFabric(storage: Storage) {
     return {
       setItem: (key: string, value: string): void => {
@@ -36,6 +36,7 @@ export class StorageService {
     if (key.length < 0) {
       return '';
     }
+    
     return `${ this.keyPrefix }_${ key }`;
   }
 }

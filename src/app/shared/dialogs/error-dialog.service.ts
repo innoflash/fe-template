@@ -10,7 +10,7 @@ export class ErrorDialogService {
   }
 
   public showErrorDialog(messages: string[] | string): BsModalRef {
-    // tslint:disable-next-line:no-non-null-assertion
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     if (messages ! instanceof Array) {
       // @ts-ignore
       messages = [messages];
@@ -22,11 +22,13 @@ export class ErrorDialogService {
     };
     // @ts-ignore
     this.bsModalRef = this.modalService.show(ErrorDialogComponent, config);
+    
     return this.bsModalRef;
   }
 
   public showErrorDialogFromResponse(res: any): BsModalRef {
     const messages = this.sanitizerErrorMessage.sanitizeMessage(res);
+    
     return this.showErrorDialog(messages);
   }
 }

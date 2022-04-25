@@ -25,7 +25,7 @@ export class LoadingStateDirective implements AfterViewInit, OnDestroy {
    * @type {(string | null)}
    * @memberof LoadingStateDirective
    */
-    // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('appLoadingStateChild') private loadingStateChild: string | null = null;
 
   /**
@@ -47,7 +47,7 @@ export class LoadingStateDirective implements AfterViewInit, OnDestroy {
   /**
    * @memberof LoadingStateDirective
    */
-  // tslint:disable-next-line:typedef
+  // eslint-disable-next-line 
   ngAfterViewInit() {
     this.stateSub = this.loading.on(this.aliasList).subscribe(change => {
       change ? this.loadingOn() : this.loadingOff();
@@ -57,7 +57,7 @@ export class LoadingStateDirective implements AfterViewInit, OnDestroy {
   /**
    * @memberof LoadingStateDirective
    */
-  // tslint:disable-next-line:typedef
+  // eslint-disable-next-line
   ngOnDestroy() {
     this.stateSub?.unsubscribe();
   }

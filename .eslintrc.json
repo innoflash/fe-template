@@ -1,0 +1,107 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "fe-template",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "feTemplate",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "prefer-arrow-callback": "error",
+        "curly": "error",
+        "eol-last": "error",
+        "no-duplicate-imports": "error",
+        "indent": [
+          "error",
+          2
+        ],
+        "max-len": [
+          "error",
+          140
+        ],
+        "eqeqeq": [
+          "error",
+          "always",
+          {
+            "null": "ignore"
+          }
+        ],
+        "prefer-const": "error",
+        "newline-before-return": "error",
+        "no-const-assign": "error",
+        "no-empty": "error",
+        "no-invalid-regexp": "error",
+        "semi": "off",
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "@typescript-eslint/no-non-null-assertion": [
+          "error"
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error"
+        ],
+        "@typescript-eslint/member-ordering": [
+          "error"
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        "@typescript-eslint/no-confusing-non-null-assertion": [
+          "error"
+        ],
+        "@typescript-eslint/semi": [
+          "error"
+        ],
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

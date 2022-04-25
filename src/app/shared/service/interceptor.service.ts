@@ -28,6 +28,7 @@ export class InterceptorService {
       ].indexOf(res['error'].message) !== -1
     ) {
       this.userProfileService.clearSession();
+      
       return res;
     }
     if (res['error'].code !== 'case_deleted.') {
@@ -43,6 +44,7 @@ export class InterceptorService {
     if (res.status === 500) {
       this.errorDialogService.showErrorDialog(messages);
     }
+    
     return res;
   }
 }

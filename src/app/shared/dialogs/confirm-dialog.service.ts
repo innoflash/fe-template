@@ -17,6 +17,7 @@ export class ConfirmDialogService {
       subject: subject ? subject : undefined
     };
     this.modalService.show(ConfirmDialogComponent, { initialState });
+    
     return this.modalService;
   }
 }

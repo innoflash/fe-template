@@ -22,6 +22,7 @@ export class SuccessDialogService {
     };
     // @ts-ignore
     this.modalService.show(SuccessDialogComponent, { initialState });
+    
     return this.modalService;
   }
 }

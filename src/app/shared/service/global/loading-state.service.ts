@@ -48,7 +48,7 @@ export class LoadingStateService {
     // assign loader message.
     this.loadingMessage = message;
 
-    // tslint:disable-next-line:no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     alias.forEach((alias: string) => {
       this.loadingStates$.next({
         alias,
@@ -64,7 +64,7 @@ export class LoadingStateService {
   end(alias: string | string[]): void {
     alias = alias instanceof Array ? alias : [alias];
 
-    // tslint:disable-next-line:no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     alias.forEach(alias => {
       this.loadingStates$.next({
         alias,

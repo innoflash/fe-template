@@ -11,11 +11,11 @@ export class SanitizerErrorMessageService {
 
     if (res.error.errors) {
       for (const value in res.error.errors) {
-          if (Array.isArray(res.error.errors[value])) {
-            res.error.errors[value].forEach((item: string) => {
-              messages.push(item);
-            });
-          }
+        if (Array.isArray(res.error.errors[value])) {
+          res.error.errors[value].forEach((item: string) => {
+            messages.push(item);
+          });
+        }
       }
     }
 

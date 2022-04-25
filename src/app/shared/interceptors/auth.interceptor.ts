@@ -20,6 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
             Authorization: `Bearer ${ this.userProfileService.getToken()?.access_token }`
           }
         });
+        
         return next.handle(req);
       }
 
@@ -32,6 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     }
+    
     return next.handle(req);
   }
 

@@ -150,12 +150,13 @@ export class HttpApiService<T = any, L = PaginatedResponse<T>, D = ActionRespons
    * @returns
    * @memberof HttpApiService
    */
-  // tslint:disable-next-line:typedef
+  // eslint-disable-next-line
   protected buildAction(path: string, params?: { [key: string]: string }, fromBaseUri: boolean = false) {
     params = params ? params : {};
+    
     return Object.keys(params).reduce((url, paramKey) => {
       return url.replace(new RegExp(`\{\:${paramKey}\}`, 'ig'), params[paramKey]);
-      // tslint:disable-next-line: max-line-length
+      // eslint-disable-next-line max-len
     }, [
       this.apiBasePath.replace(/^\/|\/$/g, ''),
       ...(fromBaseUri ? [] : [

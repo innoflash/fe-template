@@ -9,12 +9,13 @@ export class WarningDialogService {
     constructor(private modalService: BsModalService) { }
 
     public showWarningDialog(message: string, title: string = '', btnLabel: string = ''): BsModalService {
-        const initialState = {
-            message,
-            title,
-            btnLabel
-        };
-        this.modalService.show(WarningDialogComponent, { initialState });
-        return this.modalService;
+      const initialState = {
+        message,
+        title,
+        btnLabel
+      };
+      this.modalService.show(WarningDialogComponent, { initialState });
+      
+      return this.modalService;
     }
 }

@@ -99,11 +99,13 @@ export class HttpService {
     if (url.includes('http')) {
       return url;
     }
+    
     return `${ environment.apiBase }/${ url }`;
   }
 
   private extractData(res: Response): Promise<any> {
     const body = res.json();
+    
     return body || {};
   }
 
@@ -126,6 +128,7 @@ export class HttpService {
   }): Observable<never> {
     const errMsg = error.message ? error.message : error.status ? `${ error.status } - ${ error.statusText }` : 'Server error';
     console.error(errMsg);
+    
     return throwError(errMsg);
   }
 }
