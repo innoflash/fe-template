@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingStateService } from '@fe-template/shared/service/global/loading-state.service';
+import { LoadingStateService } from '@fe-template/shared/services/loading-state.service';
 
 @Component({
-  selector: 'app-load-spinner',
+  selector: 'fe-template-load-spinner',
   templateUrl: './load-spinner.component.html',
   styleUrls: ['./load-spinner.component.scss']
 })
 export class LoadSpinnerComponent implements OnInit {
   public showProgress = false;
 
-  constructor(public loadingStateService: LoadingStateService) {
+  public constructor(public loadingStateService: LoadingStateService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loadingStateService.loadingStates.subscribe({
       next: res => this.showProgress = res.state
     });

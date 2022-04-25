@@ -19,9 +19,14 @@
       "es2018",
       "dom"
     ],
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
     "baseUrl": "src",
     "paths": {
-      "@fe-template/*": ["app/*"]
+      "@fe-template/*": ["app/*"],
+      "@environments/*": [
+        "environments/*"
+      ]
     }
   },
   "angularCompilerOptions": {
